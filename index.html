@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pay Luna's Bills ♡</title>
+<meta name="theme-color" content="#f7edf8">
+<style>
+:root {
+  --bg1:#fff7fb; --bg2:#f1e3f4; --card:#fff; --text:#241d28;
+  --muted:#786c7e; --pink:#ef6fa8; --purple:#9d63ad; --dark:#754483;
+  --border:#eadced; --soft:#fdeaf3; --good:#2f7f5f;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  color:var(--text); padding:20px;
+}
+.wrap{max-width:620px;margin:0 auto}
+.brand{text-align:center;margin:8px 0 18px}
+.brand h1{margin:0;font-family:"Segoe Script","Brush Script MT",cursive;font-size:42px;font-weight:500}
+.brand p{margin:4px 0;color:var(--muted);font-size:14px}
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:22px;
+  box-shadow:0 16px 42px rgba(83,51,92,.14); padding:20px; margin-bottom:16px;
+}
+.menu-img{width:100%;display:block;border-radius:16px}
+h2{margin:0 0 6px;font-size:26px}
+.lead{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.45}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bill{
+  width:100%; border:1px solid var(--border); background:#fff; border-radius:14px;
+  padding:12px; display:flex; justify-content:space-between; gap:10px; text-align:left;
+  cursor:pointer; color:var(--text);
+}
+.bill:hover,.bill.active{border-color:var(--pink);box-shadow:0 0 0 3px rgba(239,111,168,.12)}
+.bill strong{display:block;font-size:14px}
+.bill small{display:block;margin-top:3px;color:var(--muted);font-size:11px;line-height:1.25}
+.bill b{white-space:nowrap;color:var(--dark);font-size:14px}
+.selection{margin-top:14px;padding:14px;text-align:center;border-radius:15px;background:var(--soft)}
+.selection .amount{font-size:32px;font-weight:900;margin-top:3px}
+.network{display:flex;justify-content:space-between;align-items:center;margin:16px 0;padding:13px 14px;border:1px solid var(--border);border-radius:14px}
+.pill{background:#efe1f3;color:var(--dark);padding:7px 10px;border-radius:999px;font-size:12px;font-weight:800}
+.qrbox{text-align:center;padding:16px;border:1px solid var(--border);border-radius:16px}
+.qrimage{width:200px;height:200px;border-radius:12px}
+.label{font-size:11px;color:var(--muted);font-weight:800;margin:14px 0 6px;text-transform:uppercase}
+.address{display:flex;gap:8px;align-items:center;background:#f8f5f9;border:1px solid var(--border);border-radius:12px;padding:9px}
+.address code{flex:1;overflow-wrap:anywhere;font-size:12px}
+.copy,.paybtn{border:0;border-radius:11px;font-weight:800;cursor:pointer}
+.copy{padding:10px 12px;background:var(--purple);color:#fff}
+.paybtn{width:100%;margin-top:12px;padding:14px;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;font-size:16px}
+.warning{margin-top:14px;padding:12px 13px;background:#fff8ea;border:1px solid #efd8a7;border-radius:13px;font-size:13px;line-height:1.45}
+.status{min-height:18px;margin-top:9px;color:var(--good);font-size:13px;font-weight:700}
+.footer{text-align:center;color:var(--muted);font-size:11px;margin:12px 0}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+@media(max-width:420px){.address{flex-direction:column;align-items:stretch}.copy{width:100%}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="brand">
+    <div style="font-size:28px">♡</div>
+    <h1>Luna</h1>
+    <p>your wallet has responsibilities.</p>
+  </div>
+
+  <section class="card">
+    <img class="menu-img" src="pay-lunas-bills.png" alt="Pay Luna's Bills menu">
+  </section>
+
+  <section class="card">
+    <h2>Pick your responsibility ♡</h2>
+    <p class="lead">Choose what you're covering today, then send that amount in USDT on TRON (TRC20).</p>
+
+    <div class="grid">
+      <button class="bill" type="button" data-name="Coffee Tax" data-amount="10">
+  <span><strong>Coffee Tax</strong><small>Start my morning properly.</small></span>
+  <b>10 USDT</b>
+</button>
+<button class="bill" type="button" data-name="Buy My Lunch" data-amount="25">
+  <span><strong>Buy My Lunch</strong><small>Obviously I’m not paying.</small></span>
+  <b>25 USDT</b>
+</button>
+<button class="bill" type="button" data-name="Fill My Tank" data-amount="50">
+  <span><strong>Fill My Tank</strong><small>Keep your brat moving.</small></span>
+  <b>50 USDT</b>
+</button>
+<button class="bill" type="button" data-name="Nail Fund" data-amount="75">
+  <span><strong>Nail Fund</strong><small>Pretty costs money. Yours.</small></span>
+  <b>75 USDT</b>
+</button>
+<button class="bill" type="button" data-name="Grocery Run" data-amount="100">
+  <span><strong>Grocery Run</strong><small>Yes, you’re buying my groceries too.</small></span>
+  <b>100 USDT</b>
+</button>
+<button class="bill" type="button" data-name="Pay My Phone Bill" data-amount="150">
+  <span><strong>Pay My Phone Bill</strong><small>Pay for the phone I ignore you on. ♡</small></span>
+  <b>150 USDT</b>
+</button>
+<button class="bill" type="button" data-name="Keep My Lights On" data-amount="200">
+  <span><strong>Keep My Lights On</strong><small>Being pretty looks better with electricity.</small></span>
+  <b>200 USDT</b>
+</button>
+<button class="bill" type="button" data-name="Shopping Money" data-amount="250">
+  <span><strong>Shopping Money</strong><small>Don’t ask what I need. I want it.</small></span>
+  <b>250 USDT</b>
+</button>
+<button class="bill" type="button" data-name="Rent Contribution" data-amount="500">
+  <span><strong>Rent Contribution</strong><small>Good wallets contribute to my lifestyle.</small></span>
+  <b>500 USDT</b>
+</button>
+<button class="bill" type="button" data-name="Spoil Me Properly" data-amount="1000">
+  <span><strong>Spoil Me Properly</strong><small>Finally behaving like you understand your purpose.</small></span>
+  <b>1,000 USDT</b>
+</button>
+    </div>
+
+    <div class="selection">
+      <div id="selectedName">Choose a bill above</div>
+      <div class="amount" id="selectedAmount">—</div>
+      <div style="font-size:12px;color:var(--muted)">USDT</div>
+    </div>
+
+    <div class="network">
+      <div><strong>USDT</strong><div style="font-size:12px;color:var(--muted)">Tether USD</div></div>
+      <span class="pill">TRON • TRC20</span>
+    </div>
+
+    <div class="qrbox">
+      <img class="qrimage" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAAC/ElEQVR4nO2cTW7jMAxGH0cGsnRukKPYN5gjFT3S3MA+Sg8wgLUMoOCbhSTnp9102rEzNr0I4sQPoQCCIj9SMfHpa/zxeQYccsghhxxyyKFtQlauhnrbALHBegBifaBfxTyHloc6SdIEEBugPRvj6WyMx4tZT5Ak6R5azjyHlodiDQDj8WLSFGQvE9C9HaSBOW6sZJ5DK0KtBNEM4kF6zTHin/ySQ88INQ/3Bgbdr5CAhHUCW888hxaHqke0AiLkVGE8JawbLg2jhQTUL5Y2z6G1oNHMzI5gfWywl7cGiAfRTQBccqmxlnkOLQeh++v6Wf66U3p8RMOTr8mh74ByKmmWg8J4BA2Ud4w2KxMrmefQYlCNB20qosTQJvJLlifaa4yYH3nyNTn0Feh2h4AgDYSsVWkglDzi5sU9YuvQTYzQ0ErSFLIkVW71Plq4R2wZmj1COR7UkBEedxL3iJ1Atx5RXKAGhU4Juino7jP3iI1DWaHS+BMgHlQkhzbN0lVCowUBRat6+jU59BWoxIjuIVBMUHILKKVHTjQ9RmwdqqkBIM07xE3iMNWCI6ca7hH7gOxFCevbhF6tCNgaCLK+TZATTS6uYu8Auq81crpQStB5Oym3E15r7AvS6+lstbVVJu2AMh9hfeszVHuASq1BbJJBg8ZjnocwSnERBCQ0Hn83Wto8h1aCzI4gKWE9swChhPVx7oHHg6xfxTyHlq81chtropYZ3L3LKja4QrUDaK4+QxGr5/BQlYnwXtR+8jU59BWoKlRTCQW5tTVc2xzZIwDqiL57xKahD2aoZkmKB0XTO137gW7PdFVJqmYPFyuneqKf19gRVIQokKaL5VlsO0kPXmL9OuY5tDw0n+kiHuoJHkpawVjHsPPs5f+yJoe+AzI7na10QYHS4chNrrOfBN4B9Himi1xpRoNugLJhxCbVIYllzXNoceimmriOWF7HJUqbvB7acD1i+9C7WeziFiG3Qos8wdwUdY/YOmT+z2QOOeSQQw455NBfQn8AthOB560EfdYAAAAASUVORK5CYII=" alt="Luna USDT TRC20 QR code">
+      <div class="label">Wallet address</div>
+      <div class="address">
+        <code id="walletText">TQGB5YEZ4vScjNzBRksi98sbnbnArhDie5</code>
+        <button class="copy" id="copyBtn" type="button">Copy</button>
+      </div>
+      <button class="paybtn" id="payBtn" type="button">PAY LUNA ♡</button>
+      <div class="status" id="status"></div>
+    </div>
+
+    <div class="warning"><strong>Important:</strong> Send USDT only using the TRON (TRC20) network. Do not use ERC20, BEP20 or another network.</div>
+  </section>
+
+  <div class="footer">Only the public receiving address is shown on this page.</div>
+</main>
+
+<script>
+const WALLET_ADDRESS = "TQGB5YEZ4vScjNzBRksi98sbnbnArhDie5";
+let amount = null;
+document.querySelectorAll(".bill").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".bill").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    amount = btn.dataset.amount;
+    document.getElementById("selectedName").textContent = btn.dataset.name;
+    document.getElementById("selectedAmount").textContent = Number(amount).toLocaleString();
+    document.getElementById("payBtn").textContent = "PAY " + Number(amount).toLocaleString() + " USDT ♡";
+    document.getElementById("status").textContent = "";
+  });
+});
+document.getElementById("copyBtn").addEventListener("click", async () => {
+  const s = document.getElementById("status");
+  try {
+    await navigator.clipboard.writeText(WALLET_ADDRESS);
+    s.textContent = "Wallet address copied.";
+  } catch(e) {
+    s.textContent = "Press and hold the address to copy.";
+  }
+});
+document.getElementById("payBtn").addEventListener("click", async () => {
+  const s = document.getElementById("status");
+  if (!amount) {
+    s.textContent = "Pick a bill first. ♡";
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(WALLET_ADDRESS);
+    s.textContent = "Send " + Number(amount).toLocaleString() + " USDT via TRC20. Wallet copied.";
+  } catch(e) {
+    s.textContent = "Send " + Number(amount).toLocaleString() + " USDT via TRC20 to the address above.";
+  }
+});
+</script>
+</body>
+</html>
